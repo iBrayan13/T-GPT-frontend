@@ -49,7 +49,7 @@ export const getAnswerGPT = async(question) => {
         const data = await response.json();
         let answer = data.answer;
 
-        return answer
+        return answer.replace(/\n/gi, "<br>")
     }
 
     return "Hubo un problema al obtener la respuesta. Intentalo de nuevo."

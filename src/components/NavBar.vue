@@ -2,8 +2,6 @@
     <nav id="navbar">
         <ul>
             <router-link to="">Chat</router-link>
-            <router-link to="">Preguntas Frencuentes</router-link>
-            <router-link to="">T & C</router-link>
         </ul>
     </nav>
 </template>
