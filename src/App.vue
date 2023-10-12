@@ -1,15 +1,18 @@
 <template>
-  <NavBar />
+  <!--<NavBar />-->
   <router-view/>
+  <FooterCom />
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
+//import NavBar from './components/NavBar.vue';
+import FooterCom from './components/FooterCom.vue';
 
 export default {
   name: "App",
   components: {
-    NavBar
+    FooterCom,
+    //NavBar
   }
 }
 </script>
@@ -18,4 +21,5 @@ export default {
 body
   @include reset-pm()
   font-family: $font-family
+  background: linear-gradient(180deg, $background-terciary-color -50%, $background-primary-color 150%) no-repeat
 </style>
