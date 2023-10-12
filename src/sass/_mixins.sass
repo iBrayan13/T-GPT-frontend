@@ -1,0 +1,33 @@
+@mixin reset-pm
+    padding: 0
+    margin: 0
+
+@mixin set-size($width, $height)
+    width: $width
+    height: $height
+
+@mixin delete-border-radius($top-right: 'false', $top-left: 'false', $bottom-right: 'false', $bottom-left: 'false')
+    @if $top-right == 'true'
+         border-top-right-radius: 0
+
+    @if $top-left == 'true'
+         border-top-left-radius: 0
+
+    @if $bottom-right == 'true'
+         border-bottom-right-radius: 0
+
+    @if $bottom-left == 'true'
+         border-bottom-left-radius: 0
+
+@mixin delete-border($top: 'false', $bottom: 'false', $right: 'false', $left: 'false')
+    @if $top == 'true'
+         border-top: 0
+
+    @if $bottom == 'true'
+         border-bottom: 0
+
+    @if $right == 'true'
+         border-right: 0
+
+    @if $left == 'true'
+         border-left: 0
