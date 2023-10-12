@@ -29,10 +29,11 @@ export default {
   mounted(){
     const btn = document.getElementById('get-answer');
     btn.addEventListener('click', async() => {
-      let question = document.getElementById('question')
+      let question = document.getElementById('question').value
       let ans = await getAnswerGPT(question)
       const divAnswer = document.querySelector('.answer')
       divAnswer.innerHTML = ans
+      console.log(ans)
     });
   }
 }
