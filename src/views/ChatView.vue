@@ -6,11 +6,11 @@
     </div>
 
     <div class="chatting">
-      <div class="form">
+      <form method="post">
         <img src="../../public/t-gpt.png" alt="T-GPT">
-        <input type="text" name="question" id="question">
+        <input type="text" name="question" id="question" placeholder="Escribe tu pregunta aquí..." required>
         <button type="submit" id="get-answer">Buscar</button>
-      </div>
+      </form>
 
       <div class="answer">
         <p class="default">Aquí se muestra tu futura respuesta.</p>
@@ -23,8 +23,13 @@
 import { getAnswerGPT } from '@/services/chatServices';
 
 async function chatHandler(question) {
-  let ans = await getAnswerGPT(question)
   const divAnswer = document.querySelector('.answer')
+  divAnswer.innerHTML = `
+  <p style="display: flex; justify-content: center; align-items: center; font-size: 1.5rem; height: 10rem; font-weight: 600;">
+    Obteniendo respuesta...
+  </p>
+  `
+  let ans = await getAnswerGPT(question)
   divAnswer.innerHTML = `<p>${ans}</p>`
 }
 
@@ -34,13 +39,10 @@ export default {
     return {chatHandler}
   },
   mounted(){
-    const btn = document.getElementById('get-answer');
     let question = document.getElementById('question')
-    btn.addEventListener('click', () => {
-      chatHandler(question.value)
-    })
 
-    document.addEventListener('submit', () => {
+    document.querySelector('form').addEventListener('submit', e => {
+      e.preventDefault()
       chatHandler(question.value)
     })
   }
@@ -49,7 +51,7 @@ export default {
 
 <style scoped lang="sass">
 @media (max-width: $big-max-screen-mobile)
-  .form
+  form
     @include set-size($width: calc(20rem - 1rem), $height: 2.5rem)
 
     img
@@ -67,13 +69,10 @@ export default {
   .answer
     @include set-size($width: calc(20rem - 4rem), $height: auto)
 
-    .default
-      @include set-size($width: auto, $height: 10rem)
-      font-size: 1.5rem
-      font-weight: 600
+    
 
 @media (max-width: $small-max-screen-mobile)
-  .form
+  form
     @include set-size($width: calc(15rem - 1rem), $height: 2.5rem)
 
     img
@@ -91,13 +90,10 @@ export default {
   .answer
     @include set-size($width: calc(15rem - 4rem), $height: auto)
 
-    .default
-      @include set-size($width: auto, $height: 10rem)
-      font-size: 1.5rem
-      font-weight: 600
+    
 
 @media (min-width: $small-min-screen)
-  .form
+  form
     @include set-size($width: calc(35rem - 1rem), $height: 2.5rem)
 
     img
@@ -114,13 +110,10 @@ export default {
   .answer
     @include set-size($width: calc(35rem - 4rem), $height: auto)
 
-    .default
-      @include set-size($width: auto, $height: 10rem)
-      font-size: 1.5rem
-      font-weight: 600
+    
 
 @media (min-width: $medium-min-screen)
-  .form
+  form
     @include set-size($width: calc(45rem - 1rem), $height: 2.5rem)
 
     img
@@ -137,13 +130,10 @@ export default {
   .answer
     @include set-size($width: calc(45rem - 4rem), $height: auto)
 
-    .default
-      @include set-size($width: auto, $height: 10rem)
-      font-size: 1.5rem
-      font-weight: 600
+    
 
 @media (min-width: $big-min-screen)
-  .form
+  form
     @include set-size($width: calc(55rem - 1rem), $height: 4rem)
 
     img
@@ -161,10 +151,7 @@ export default {
   .answer
     @include set-size($width: calc(55rem - 4rem), $height: auto)
 
-    .default
-      @include set-size($width: auto, $height: 10rem)
-      font-size: 1.5rem
-      font-weight: 600
+    
 
 #chat
   display: flex
@@ -191,7 +178,7 @@ export default {
     margin-bottom: 1rem
     border-radius: 1rem
 
-    .form
+    form
       padding-left: 0.5rem
       padding-right: 0.5rem
       background-color: #ffffff
@@ -231,8 +218,10 @@ export default {
       @include delete-border-radius($top-right: 'true', $top-left: 'true')
 
       .default
+        @include set-size($width: auto, $height: 10rem)
         display: flex
         justify-content: center
         align-items: center
-
+        font-size: 1.5rem
+        font-weight: 600
 </style>
