@@ -1,12 +1,12 @@
 <template>
     <footer>
         <div class="footer-left">
-            <p>Development - Brayan Barreto</p>
+            <p>Brayan Barreto</p>
             <div class="social-media">
                 <a href="https://github.com/iBrayan13/T-GPT-frontend" target="_blank"><img src="../../public/github_black.png" alt="Frontend"></a>
                 <a href="https://github.com/iBrayan13/T-GPT-backend" target="_blank"><img src="../../public/github_black.png" alt="Backend"></a>
                 <!--<a href="">Portfolio</a>-->
-                <a href="https://www.linkedin.com/in/brayan-barreto" target="_blank"><img src="../../public/linkedin_black.png" alt="LinkedIn"></a>
+                <a href="https://www.linkedin.com/posts/brayan-barreto_t-gpt-i-have-recently-worked-in-a-project-activity-7118622591400988673-iegj?utm_source=share" target="_blank"><img src="../../public/linkedin_black.png" alt="LinkedIn"></a>
             </div>
         </div>
 
@@ -30,6 +30,7 @@ export default {
 footer
     @include set-size($width: 100%, $height: calc(14rem - 1rem))
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, $background-secondary-color 100%) no-repeat
+    margin-top: 10rem
     padding: 1rem
     display: flex
     flex-direction: row

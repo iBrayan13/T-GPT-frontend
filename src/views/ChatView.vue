@@ -48,6 +48,124 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@media (max-width: $big-max-screen-mobile)
+  .form
+    @include set-size($width: calc(20rem - 1rem), $height: 2.5rem)
+
+    img
+      @include set-size($width: 1.5rem, $height: 1.5rem)
+
+    #question
+      @include set-size($width: 12rem, $height: 2rem)
+      font-size: 1rem
+    
+    #get-answer
+      @include set-size($width: 4rem, $height: 2rem)
+      border-radius: 1rem
+      font-size: 0.8rem
+  
+  .answer
+    @include set-size($width: calc(20rem - 4rem), $height: auto)
+
+    .default
+      @include set-size($width: auto, $height: 10rem)
+      font-size: 1.5rem
+      font-weight: 600
+
+@media (max-width: $small-max-screen-mobile)
+  .form
+    @include set-size($width: calc(15rem - 1rem), $height: 2.5rem)
+
+    img
+      @include set-size($width: 1.5rem, $height: 1.5rem)
+
+    #question
+      @include set-size($width: 8rem, $height: 2rem)
+      font-size: 1rem
+    
+    #get-answer
+      @include set-size($width: 3rem, $height: 2rem)
+      border-radius: 1rem
+      font-size: 0.6rem
+  
+  .answer
+    @include set-size($width: calc(15rem - 4rem), $height: auto)
+
+    .default
+      @include set-size($width: auto, $height: 10rem)
+      font-size: 1.5rem
+      font-weight: 600
+
+@media (min-width: $small-min-screen)
+  .form
+    @include set-size($width: calc(35rem - 1rem), $height: 2.5rem)
+
+    img
+      @include set-size($width: 1.5rem, $height: 1.5rem)
+
+    #question
+      @include set-size($width: 25rem, $height: 2rem)
+      font-size: 1rem
+    
+    #get-answer
+      @include set-size($width: 6rem, $height: 2rem)
+      border-radius: 1rem
+  
+  .answer
+    @include set-size($width: calc(35rem - 4rem), $height: auto)
+
+    .default
+      @include set-size($width: auto, $height: 10rem)
+      font-size: 1.5rem
+      font-weight: 600
+
+@media (min-width: $medium-min-screen)
+  .form
+    @include set-size($width: calc(45rem - 1rem), $height: 2.5rem)
+
+    img
+      @include set-size($width: 1.5rem, $height: 1.5rem)
+
+    #question
+      @include set-size($width: 35rem, $height: 2rem)
+      font-size: 1rem
+    
+    #get-answer
+      @include set-size($width: 6rem, $height: 2rem)
+      border-radius: 1rem
+  
+  .answer
+    @include set-size($width: calc(45rem - 4rem), $height: auto)
+
+    .default
+      @include set-size($width: auto, $height: 10rem)
+      font-size: 1.5rem
+      font-weight: 600
+
+@media (min-width: $big-min-screen)
+  .form
+    @include set-size($width: calc(55rem - 1rem), $height: 4rem)
+
+    img
+      @include set-size($width: 3rem, $height: 3rem)
+
+    #question
+      @include set-size($width: 42.5rem, $height: 3rem)
+      font-size: 1.5rem
+    
+    #get-answer
+      @include set-size($width: 7rem, $height: 3rem)
+      border-radius: 1.5rem
+      font-size: 1.1rem
+  
+  .answer
+    @include set-size($width: calc(55rem - 4rem), $height: auto)
+
+    .default
+      @include set-size($width: auto, $height: 10rem)
+      font-size: 1.5rem
+      font-weight: 600
+
 #chat
   display: flex
   flex-direction: column
@@ -74,7 +192,6 @@ export default {
     border-radius: 1rem
 
     .form
-      @include set-size($width: calc(40rem - 1rem), $height: 2.5rem)
       padding-left: 0.5rem
       padding-right: 0.5rem
       background-color: #ffffff
@@ -86,23 +203,18 @@ export default {
       align-items: center
 
       img
-        @include set-size($width: 1.5rem, $height: 1.5rem)
         margin-right: 0.5rem
       
       #question
-        @include set-size($width: 30.5rem, $height: 2rem)
         margin-right: 0.5rem
         border: 0
-        font-size: 1rem
         background-color: rgba(0, 0, 0, 0)
 
         &:focus-visible
           outline: 0
       
       #get-answer
-        @include set-size($width: 6rem, $height: 2rem)
         border: 0
-        border-radius: 1rem
         background-color: $btn-primary-color
         text-align: center
         font-weight: 700
@@ -112,7 +224,6 @@ export default {
           background-color: $btn-secondary-color
     
     .answer
-      @include set-size($width: calc(40rem - 4rem), $height: auto)
       padding: calc(2rem + 2px)
       background-color: $background-secondary-color
       border: 0
@@ -120,9 +231,6 @@ export default {
       @include delete-border-radius($top-right: 'true', $top-left: 'true')
 
       .default
-        @include set-size($width: auto, $height: 8rem)
-        font-size: 1.3rem
-        font-weight: 600
         display: flex
         justify-content: center
         align-items: center
