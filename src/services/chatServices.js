@@ -12,7 +12,7 @@ const getAccessToken = async() => {
             body: JSON.stringify({
                 // Public keys to get access to T-GPT's API :D
                 key: "WMa1pVzzFUKEwKbwZ2XCGiq69HoXIpai",
-                engine: "text-davinci-003",
+                engine: "davinci",
                 provideer: "T-GPT",
                 jwt_algorithm: "HS256"
             })
